@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { clock } from "lucide-react";
+import { Clock } from "lucide-react";
+import AuthLayout from "../components/AuthLayout";
+import OtpInput from "../components/OtpInput";
+import Button from "../components/Button";
 
 const OtpVerification = () => {
   const navigate = useNavigate();
@@ -112,3 +115,5 @@ const OtpVerification = () => {
     </AuthLayout>
   );
 };
+
+export default OtpVerification;

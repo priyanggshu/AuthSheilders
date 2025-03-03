@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import AuthLayout from "../components/AuthLayout";
+import InputField from "../components/InputField";
+import Button from "../components/Button";
+import { useTheme } from "../context/Theme_Context";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { theme } = useTheme();
+  
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
