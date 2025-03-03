@@ -5,6 +5,7 @@ import { Clock } from "lucide-react";
 import AuthLayout from "../components/AuthLayout";
 import OtpInput from "../components/OtpInput";
 import Button from "../components/Button";
+import { useTheme } from "../context/Theme_Context";
 
 const OtpVerification = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const OtpVerification = () => {
   const [error, setError] = useState("");
   const [countdown, setCountdown] = useState(60);
   const [canResend, setCanResend] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (countdown > 0) {
@@ -74,7 +76,7 @@ const OtpVerification = () => {
         <OtpInput length={6} value={otp} onChange={setOtp} />
 
         {error && (
-          <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm rounded-lg">
+          <div className={`mb-4 p-3 ${theme === "dark" ? 'bg-red-900/20 text-red-400' : 'text-red-600 bg-red-50'} text-sm rounded-lg`}>
             {error}
           </div>
         )}
@@ -89,7 +91,7 @@ const OtpVerification = () => {
         </Button>
 
         <div className="mt-6 text-center">
-          <div className="flex items-center justify-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+          <div className={`flex items-center justify-center text-sm ${theme === "dark" ? 'text-gray-400' : 'text-gray-600' } mb-2`}>
             <Clock size={16} className="mr-1" />
             {canResend ? (
               <span>You can now resend the OTP</span>
@@ -104,8 +106,8 @@ const OtpVerification = () => {
             disabled={!canResend || isLoading}
             className={`text-sm font-medium ${
               canResend && !isLoading
-                ? "text-blue-600 hover:underline dark:text-blue-400 cursor-pointer"
-                : "text-gray-400 dark:text-gray-500 cursor-not-allowed"
+                ? ` hover:underline ${theme === "dark" ? 'text-blue-400' : 'text-blue-600'} cursor-pointer`
+                : `${theme === "dark" ? 'text-gray-500' : 'text-gray-400' } cursor-not-allowed`
             }`}
           >
             Resend OTP

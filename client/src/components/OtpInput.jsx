@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useTheme } from "../context/Theme_Context";
 
 const OtpInput = ({ length, value, onChange }) => {
   const [otp, setOtp] = useState(
     value.split("").concat(Array(length - value.length).fill(""))
   );
   const inputRefs = useRef([]);
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (inputRefs.current[0]) {
@@ -90,7 +92,7 @@ const OtpInput = ({ length, value, onChange }) => {
           onChange={(e) => handleChange(e, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           onPaste={index === 0 ? handlePaste : undefined}
-          className="w-12 h-14 text-center text-xl font-semibold border border-gray-300 dark:border-gray-600 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white transition-colors duration-200"
+          className={`w-12 h-14 text-center text-xl font-semibold border ${ theme === 'dark' ? "bg-gray-700 border-gray-600 text-white" : "border-gray-300" }  rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500  transition-colors duration-200`}
           aria-label={`Digit ${index + 1}`}
         />
       ))}

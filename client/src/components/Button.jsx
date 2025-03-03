@@ -1,5 +1,6 @@
 import React from "react";
 import { Loader2 } from "lucide-react";
+import { useTheme } from "../context/Theme_Context";
 
 const Button = ({
   children,
@@ -12,13 +13,13 @@ const Button = ({
 }) => {
   const baseClasses =
     "relative flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
+    const { theme } = useTheme();
 
   const variantClasses = {
     primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500",
-    secondary:
-      "bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white focus:ring-gray-500",
+    secondary: `${ theme === 'dark' ?  'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800' } focus:ring-gray-500 `,
     outline:
-      "border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 focus:ring-gray-500",
+      `border ${ theme === 'dark' ? "text-gray-300 hover:bg-gray-700 border-gray-600" : "border-gray-300 hover:bg-gray-50 text-gray-700" } focus:ring-gray-500`,
   };
 
   const widthClass = fullWidth ? "w-full" : "";

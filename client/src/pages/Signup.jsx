@@ -111,14 +111,14 @@ const Signup = () => {
                 type="checkbox"
                 checked={formData.agreeToTerms}
                 onChange={handleChange}
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+                className={`w-4 h-4 text-blue-600 rounded focus:ring-blue-500 ${ theme === "dark" ? "border-gray-600 bg-gray-700": "border-gray-300" } `}
               />
             </div>
             <div className="ml-3 text-sm">
-              <label htmlFor="agreeToTerms" className="font-medium text-gray-700 dark:text-gray-300">
-                I agree to the <a href="#" className="text-blue-600 hover:underline dark:text-blue-400">
+              <label htmlFor="agreeToTerms" className={`font-medium ${ theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                I agree to the <a href="#" className={`${ theme === "dark" ? "text-blue-400" : "text-blue-600" }  hover:underline`}>
                   Terms of Service
-                </a> and <a href="#" className="text-blue-600 hover:underline dark:text-blue-400">
+                </a> and <a href="#" className={`${ theme === "dark" ? "text-blue-400" : "text-blue-600 " } hover:underline`}>
                   Privacy Policy</a>
               </label>
             </div>
@@ -134,9 +134,9 @@ const Signup = () => {
           Send OTP
         </Button>
 
-        <p className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+        <p className={`mt-4 text-center text-sm ${ theme === "dark" ? 'text-gray-400' : 'text-gray-600' } `}>
           Already have an account?{' '}
-          <Link to="/" className="font-medium text-blue-600 hover:underline dark:text-blue-400">
+          <Link to="/" className={`font-medium ${ theme === 'dark' ? 'text-blue-400' : 'text-blue-600' } hover:underline `}>
             Sign in
           </Link>
         </p>

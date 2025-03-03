@@ -13,6 +13,7 @@ function App() {
           <Route path='/' element={<Login />}/>
           <Route path='/signup' element={<Signup />}/>
           <Route path='/verify-otp' element={<OtpVerification />}/>
+          <Route path='/dashboard' element={<Dashboard />}/>
         </Routes>
       </Router>
     </ThemeProvider>
