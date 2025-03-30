@@ -1,1 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?&family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quattrocento:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap');
+
 @import "tailwindcss";
+
+.font-Syne {
+    font-family: Syne;
+}
+
+.font-Krona {
+    font-family: Krona One;
+}
+
+.font-Montserrat {
+    font-family: Montserrat;
+}
+
+.font-Quattrocento {
+    font-family: Quattrocento;
+}
+.font-Roboto {
+    font-family: Roboto;
+}

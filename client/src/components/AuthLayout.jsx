@@ -33,16 +33,16 @@ const AuthLayout = ({ children, title, subtitle }) => {
           <div className="p-8">
             <div className="flex items-center justify-center mb-6">
               <div className="bg-blue-500 p-3 rounded-full">
-                <Shield className="h-6 w-6 text-white" />
+                <Shield className="h-8 w-8 text-white" />
               </div>
             </div>
 
-            <h1 className={`text-2xl font-bold text-center ${theme === "dark" ? 'text-white' : 'text-gray-800' } mb-2`}>
+            <h1 className={`text-xl font-Krona font-bold text-center ${theme === "dark" ? 'text-white' : 'text-gray-800' } mb-2`}>
               {title}
             </h1>
 
             {subtitle && (
-              <p className={`text-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600' } mb-6`}>
+              <p className={`text-center font-Syne ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600' } mb-8`}>
                 {subtitle}
               </p>
             )}
